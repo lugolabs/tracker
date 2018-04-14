@@ -102,7 +102,7 @@ namespace :deploy do
   end
 
   before :deploy, 'deploy:check_revision'
-  # before :deploy, 'deploy:run_tests'
+  before :deploy, 'deploy:run_tests'
 
   after 'deploy:symlink:shared', 'deploy:compile_packs_locally'
 
