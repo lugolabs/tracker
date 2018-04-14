@@ -5,6 +5,7 @@ AllCops:
     - db/migrate/*
     - bin/*
     - config/**/
+    - node_modules/**/**
 
 Rails:
   Enabled: true

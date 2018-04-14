@@ -15,7 +15,6 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 
-
 # Bootstrap form
 gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
 
@@ -40,6 +39,7 @@ gem 'figaro'
 group :development, :test do
   # Adds support for Capybara system testing
   gem 'capybara', '~> 2.13'
+  gem 'poltergeist'
 end
 
 group :development do
