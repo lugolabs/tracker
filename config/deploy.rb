@@ -21,6 +21,7 @@ set :rbenv_ruby,            '2.5.0'
 set :rbenv_custom_path,     "/home/#{fetch(:deploy_user)}/.rbenv"
 set :rbenv_prefix,          "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
+set :repo_url,              'git@github.com:lugolabs/tracker.git'
 set :branch,                'master'
 set :keep_releases,         3
 set :keep_assets,           1
