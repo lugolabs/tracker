@@ -1,11 +1,11 @@
 news_home_one:
   user: fred
   task: news_home
-  start_at: 1520507424
-  end_at: 1520507427
+  start_at: <%= Time.utc(2018, 4, 11, 9).to_i %>
+  end_at: <%= Time.utc(2018, 4, 11, 10).to_i %>
 
 news_home_two:
   user: fred
   task: news_home
-  start_at: 1520507476
-  end_at: 1520507479
+  start_at: <%= Time.utc(2018, 4, 11, 10).to_i %>
+  end_at: <%= Time.utc(2018, 4, 11, 11).to_i %>

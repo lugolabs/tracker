@@ -36,3 +36,6 @@ yarn-debug.log*
 
 # Database
 /config/database.yml
+
+# Debug
+/public/testing.html

@@ -36,10 +36,13 @@ gem 'money-rails', '~> 1'
 # Config
 gem 'figaro'
 
-group :development, :test do
+group :test do
   # Adds support for Capybara system testing
   gem 'capybara', '~> 2.13'
-  gem 'poltergeist'
+  gem 'selenium-webdriver'
+
+  # Mocking and stubbing
+  gem 'mocha'
 end
 
 group :development do
