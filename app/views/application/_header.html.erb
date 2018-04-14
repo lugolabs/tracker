@@ -1,0 +1,72 @@
+  <nav class="navbar fixed-top navbar-expand-md navbar-light app-header pg-sign-<%= signed_in? %>" id="app-header" data-turbolinks-permanent>
+    <%= link_to '/', class: 'navbar-brand text-bold' do %>
+      <span>
+        <i class="iconly-0750-alarm-check"></i>
+      </span>
+      tracker
+    <% end %>
+
+    <% if signed_in? %>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mr-1">
+          <%= link_to '#start', class: 'nav-link text-lg', data: { target: 'timer.playNow', action: 'timer#toggle' } do %>
+            <i class="iconly-0875-play-circle"></i>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <span class="navbar-text app-timer-ticker" data-target="timer.ticker">00:00:00</span>
+        </li>
+        <li class="nav-item dropdown app-timer-tasks">
+          <a class="nav-link text-truncate task-name <%= 'loaded' if current_slot.present? %>" data-target="timer.taskNameLink" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="iconly-0827-chevron-down text-xs"></i>
+            <span data-target="timer.taskName">
+              <% if current_slot.present? %>
+                <%= render('task_name', task: current_slot.task) %>
+              <% else %>
+                What are you working on ?
+              <% end %>
+            </span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg" aria-labelledby="app-header-drop-tasks">
+            <% current_user_tasks.each do |project, tasks| %>
+              <h6 class="dropdown-header text-sm pl-2">
+                <span class="proj-col-label-sm mr-1" style="background:<%= project.color %>"></span>
+                <%= project.name %>
+              </h6>
+              <% tasks.each do |task| %>
+                <%= link_to '#start', class: 'dropdown-item', data: {
+                    target: 'task',
+                    action: 'timer#playTask',
+                    name:   render(partial: 'task_name', locals: { task: task }),
+                    url:    slots_path(slot: { task_id: task.id }) } do %>
+                  <%= task.name %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+
+    <ul class="navbar-nav ml-auto">
+      <% if signed_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="app-header-user-drop-label" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="iconly-0287-user"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="app-header-user-drop-label">
+            <%= link_to 'Settings', edit_user_path, class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to 'Sign out', sign_out_path, method: :delete, class: 'dropdown-item' %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item mt-1">
+          <%= link_to 'Sign in', sign_in_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign up', sign_up_path, class: 'btn btn-sm btn-success mt-1' %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>

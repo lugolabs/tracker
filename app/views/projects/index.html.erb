@@ -1,0 +1,24 @@
+<div class="row mb-5">
+  <div class="col-md-6">
+    <h1 class="h3">Projects</h1>
+  </div>
+  <div class="col-md-6 text-right">
+    <%= link_to new_project_path, data: { toggle: 'tooltip' }, title: 'Add new project', class: 'btn btn-round btn-outline-secondary text-muted text-sm' do %>
+      <i class="iconly-0823-plus"></i>
+    <% end %>
+  </div>
+</div>
+
+<% if @projects.present? %>
+  <% @projects.each do |project| %>
+    <div class="item-brd">
+      <span class="proj-col-label-sm mr-1" style="background:<%= project.color %>"></span>
+      <%= link_to project.name, project, class: 'text-dark' %>
+    </div>
+  <% end %>
+<% else %>
+  <p class="text-muted">
+    You don't have any projects yet.
+    <%= link_to 'Create one now', new_project_path %>.
+  </p>
+<% end %>

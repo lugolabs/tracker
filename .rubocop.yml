@@ -1,0 +1,76 @@
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - db/seeds.rb
+    - db/migrate/*
+    - bin/*
+    - config/**/
+
+Rails:
+  Enabled: true
+
+Documentation:
+  Enabled: false
+
+Rails/OutputSafety:
+  Enabled: false
+
+DotPosition:
+  Enabled: false
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: false
+
+Layout/DotPosition:
+  Enabled: false
+
+Layout/IndentHash:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - config/routes.rb
+    - config/**/*.rb
+    - test/**/*.rb
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - app/helpers/application_helper.rb
+
+Metrics/AbcSize:
+  Exclude:
+    - app/controllers/slots_controller.rb
+    - app/helpers/slots_helper.rb
+    - app/models/report_filter.rb
+
+Metrics/LineLength:
+  Max: 125
+  Exclude:
+    - config/**/*.rb
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 12
+  Exclude:
+    - app/models/report_filter.rb
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - test/**/*.rb

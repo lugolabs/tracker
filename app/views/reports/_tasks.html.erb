@@ -1,0 +1,19 @@
+<div class="collapse" id="report-slots-<%= project.id %>">
+  <% grouped_task_slots.each do |task, task_slots| %>
+    <div class="item-brd">
+      <div class="row">
+        <div class="col-md-8">
+          <h5 class="h6 mb-0 pl-4 text-muted text-normal"><%= task.name %></h5>
+        </div>
+        <div class="col-md-4 text-right">
+          <% duration_total task_slots do |duration, cost| %>
+            <span class="h6 text-boldy"><%= duration %></span>
+            <% if cost.present? %>
+              <span class="h6 text-boldy ml-3"><%= cost %></span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

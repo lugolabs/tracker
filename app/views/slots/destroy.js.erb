@@ -1,0 +1,11 @@
+<% if @daily_slots.present? %>
+app.update(
+  '#timer-day-<%= @day.to_s(:db) %>',
+  '<%= j render("timer/day", day: @day, daily_slots: @daily_slots) %>',
+  '#timer-proj-slots-<%= @project.id %>-<%= @day.to_s(:db) %>',
+  '#timer-proj-<%= @project.id %>-<%= @day.to_s(:db) %>',
+  '<%= @project_slots.present? ? j(render("slots", day: @day, project: @project, project_slots: @project_slots)) : "" %>'
+);
+<% else %>
+app.remove('#timer-day-cont-<%= @day.to_s(:db) %>');
+<% end %>

@@ -1,0 +1,4 @@
+<h3 class="text-normal mb-3" id="timer-day-<%= day.to_s(:db) %>">
+  <span class="text-bolder text-sm"><%= day.to_s(:short_date) %></span>
+  <div class="text-success mt-1" id="timer-day-duration-<%= day.to_s(:db) %>"><%= duration_total daily_slots %></div>
+</h3>

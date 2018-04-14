@@ -1,0 +1,30 @@
+<h1 class="h3 mb-5">
+  <i class="iconly-0506-pie-chart2"></i>
+  Reports
+</h1>
+
+<%= bootstrap_form_for @filter, url: '', method: :get, enforce_utf8: false do |form| %>
+  <div class="input-date-range">
+    <input type="text" id="report_filter_period" readonly="readonly" />
+    <span class="iconly-0394-calendar-full"></span>
+  </div>
+<% end %>
+
+<div class="mt-4" id="reports-projects">
+  <% if @filter.report.present? %>
+    <h3 class="text-normal mb-3">
+      <span class="text-bolder text-sm">Total</span>
+      <div class="text-success mt-1"><%= duration_total @filter.report %></div>
+    </h3>
+    <% each_project_for(@filter) do |project, project_slots, grouped_task_slots| %>
+      <%= render 'project', project: project, project_slots: project_slots, task_size: grouped_task_slots.size %>
+      <%= render 'tasks', project: project, grouped_task_slots: grouped_task_slots %>
+    <% end %>
+  <% else %>
+    <p class="text-muted">No tracking found.</p>
+  <% end %>
+</div>
+
+<script>
+  app.rangePicker('#report_filter_period', '<%= @filter.interval %>', <%= @filter.start_at %>, <%= @filter.end_at %>);
+</script>

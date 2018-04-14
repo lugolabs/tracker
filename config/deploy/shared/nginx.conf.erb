@@ -1,0 +1,59 @@
+upstream <%= fetch(:full_app_name) %>_puma {
+  server <%= fetch(:puma_bind) %>;
+}
+
+server {
+  server_name <%= fetch(:website_url) %>;
+  listen 80;
+  listen [::]:80;
+  root <%= fetch(:deploy_to) %>/current/public;
+
+  location ^~ /assets|packs/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+  }
+
+  try_files $uri/index.html $uri @<%= fetch(:full_app_name) %>_puma;
+  location @<%= fetch(:full_app_name) %>_puma {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+
+    proxy_pass http://<%= fetch(:full_app_name) %>_puma;
+  }
+
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 4G;
+  keepalive_timeout 10;
+}
+
+<% if fetch(:enable_ssl) %>
+server {
+  server_name <%= fetch(:website_url) %>;
+  listen 443 ssl;
+  root <%= fetch(:deploy_to) %>/current/public;
+
+  location ^~ /assets|packs/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+  }
+
+  try_files $uri/index.html $uri @<%= fetch(:full_app_name) %>_puma;
+  location @<%= fetch(:full_app_name) %>_puma {
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+
+    proxy_pass http://<%= fetch(:full_app_name) %>_puma;
+  }
+
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 4G;
+  keepalive_timeout 10;
+  ssl_certificate <%= fetch(:ssl_certificate) %>;
+  ssl_certificate_key <%= fetch(:ssl_key) %>;
+}
+<% end %>

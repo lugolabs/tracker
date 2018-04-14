@@ -1,0 +1,19 @@
+<div class="item-brd" id="timer-slot-<%= slot.id %>">
+  <%= bootstrap_form_for slot, remote: true do |form| %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= form.select :task_id, grouped_tasks_options(slot), { hide_label: true }, class: 'form-control-sm', wrapper: { class: 'mb-0' } %>
+      </div>
+      <div class="col-md-2">
+        <%= form.time_field :start_at_time, value: slot.start_at_time.to_s(:short_time), hide_label: true, class: 'form-control-sm', wrapper: { class: 'mb-0' } %>
+      </div>
+      <div class="col-md-2">
+        <%= form.time_field :end_at_time, value: slot.end_at_time.to_s(:short_time), hide_label: true, class: 'form-control-sm', wrapper: { class: 'mb-0' } %>
+      </div>
+      <div class="col-md-2">
+        <%= form.submit 'Save', class: 'btn btn-sm btn-secondary' %>
+        <%= link_to 'Cancel', slot, remote: true, data: { replace: "#timer-slot-#{slot.id}" }, class: 'text-danger text-sm ml-1' %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,25 @@
+<h1 class="h3 mb-5">What did you work on?</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= bootstrap_form_for @slot, url: manual_slots_path do |form| %>
+      <%= form.select :task_id, grouped_tasks_options(@slot) %>
+      <%= form.text_field :start_at_formatted, label: 'Started on', class: 'w-auto' %>
+      <%= form.time_field :end_at_time, label: 'Ended on', class: 'w-auto', placeholder: '00:00' %>
+      <%= form.submit 'Save', class: 'btn btn-sm btn-success' %>
+    <% end %>
+  </div>
+</div>
+
+
+<script>
+  $('#slot_start_at_formatted').daterangepicker({
+    singleDatePicker: true,
+    timePicker: true,
+    timePicker24Hour: true,
+    locale: {
+      format: 'DD/MM/YYYY HH:MM',
+      firstDay: 1
+    }
+  });
+</script>

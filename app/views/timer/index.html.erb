@@ -1,0 +1,11 @@
+<div id="timer-days">
+  <% @recent_slots.each do |day, daily_slots| %>
+    <div class="mb-5" id="timer-day-cont-<%= day.to_s(:db) %>">
+      <%= render 'day', day: day, daily_slots: daily_slots %>
+
+      <% daily_slots.group_by { |s| s.project }.each do |project, project_slots| %>
+        <%= render 'slots/slots', day: day, project: project, project_slots: project_slots %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

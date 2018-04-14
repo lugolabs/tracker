@@ -1,0 +1,25 @@
+<div id="timer-proj-<%= project.id %>-<%= day.to_s(:db) %>">
+  <div class="item-brd">
+    <div class="row">
+      <div class="col-md-8">
+        <a href="#timer-proj-slots-<%= project.id %>-<%= day.to_s(:db) %>" data-toggle="collapse" class="text-dark no-decor">
+          <h5 class="h6 mb-0">
+            <span class="badge badge-light text-boldy text-muted mr-1"><%= project_slots.size %></span>
+            <span class="proj-col-label-sm" style="background:<%= project.color %>"></span>
+            <span class="text-boldy mr-2"><%= project.name %></span>
+          </h5>
+        </a>
+      </div>
+      <div class="col-md-4 text-right">
+        <span class="h6 text-muted inline-block mr-3">
+          <%= project_slots.last.start_at_dt.in_time_zone(current_user.time_zone).to_s(:short_time) %> -
+          <%= project_slots.first.end_at_dt.in_time_zone(current_user.time_zone).to_s(:short_time) %>
+        </span>
+        <span class="h6 text-boldy"><%= duration_total project_slots %></span>
+      </div>
+    </div>
+  </div>
+  <div class="collapse" id="timer-proj-slots-<%= project.id %>-<%= day.to_s(:db) %>">
+    <%= render project_slots %>
+  </div>
+</div>

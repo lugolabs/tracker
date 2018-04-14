@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-4 mx-auto">
+    <h2 class="mb-4"><%= t(".title") %></h2>
+    <p><%= t(".description") %></p>
+
+    <%= bootstrap_form_for :password, url: passwords_path do |form| %>
+      <%= form.text_field :email, type: 'email' %>
+
+      <div class="mt-4">
+        <%= form.submit class: 'btn btn-sm btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

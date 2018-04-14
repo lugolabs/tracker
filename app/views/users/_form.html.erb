@@ -1,0 +1,14 @@
+<%= bootstrap_form_for @user do |form| %>
+  <% unless @user.persisted? %>
+    <%= form.hidden_field :time_zone %>
+  <% end %>
+
+  <%= form.text_field :first_name %>
+  <%= form.text_field :last_name %>
+  <%= form.text_field :email, type: 'email' %>
+  <%= form.password_field :password %>
+
+  <div class="mt-4">
+    <%= form.submit class: 'btn btn-sm btn-secondary' %>
+  </div>
+<% end %>

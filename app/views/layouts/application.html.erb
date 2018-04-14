@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tracker</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="site-content <%= 'disabled' if current_slot.blank? %>" data-controller="timer"
+        data-timer-url="<%= slots_path %>"
+        data-timer-start="<%= current_slot.try(:start_at) %>"
+        data-timer-stop="<%= current_slot.present? ? stop_slot_path(current_slot) : '' %>">
+      <%= render 'header' %>
+      <div class="container">
+        <% if signed_in? %>
+          <div class="row">
+            <div class="col-md-2">
+              <%= render 'nav' %>
+            </div>
+            <div class="col-md-10">
+              <%= render_flash %>
+              <%= yield %>
+            </div>
+          </div>
+        <% else %>
+          <%= render_flash %>
+          <%= yield %>
+        <% end %>
+      </div>
+    </div>
+    <%= render 'footer' %>
+  </body>
+</html>

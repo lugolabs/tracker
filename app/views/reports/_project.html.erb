@@ -1,0 +1,21 @@
+<div class="item-brd">
+  <div class="row">
+    <div class="col-md-8">
+      <a href="#report-slots-<%= project.id %>" data-toggle="collapse" class="text-dark no-decor">
+        <h5 class="h6 mb-0">
+          <span class="badge badge-light text-boldy text-muted mr-1"><%= task_size %></span>
+          <span class="proj-col-label-sm mr-1" style="background:<%= project.color %>"></span>
+          <span class="text-boldy mr-2"><%= project.name %></span>
+        </h5>
+      </a>
+    </div>
+    <div class="col-md-4 text-right">
+      <% duration_total project_slots do |duration, cost| %>
+        <span class="h6 text-boldy"><%= duration %></span>
+        <% if cost.present? %>
+          <span class="h6 text-boldy ml-3"><%= cost %></span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

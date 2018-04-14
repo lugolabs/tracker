@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-8">
+    <%= bootstrap_form_for project do |form| %>
+      <%= form.text_field :name %>
+      <div class="row">
+        <div class="col-md-9">
+          <%= form.select :client_id, project.user.clients.collect { |c| [c.name, c.id] }, { include_blank: true } %>
+        </div>
+        <div class="col-md-3">
+          <div class="mb-2"></div>
+          <%= link_to 'Add client', '#', data: { toggle: 'modal', target: '#client-modal' }, class: 'btn btn-sm btn-outline-secondary mt-4' %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <%= form.number_field :rate_cents, label: 'Rate per hour (in cents)' %>
+        </div>
+        <div class="col-md-4">
+          <%= form.select :rate_currency, Project::CURRENCIES.collect { |c| [c, c] }, { label: 'Currency' }, class: 'w-auto' %>
+        </div>
+      </div>
+
+      <div class="form-colors">
+        <% Project::COLORS.each do |color| %>
+          <%= form.radio_button_without_bootstrap :color, color %>
+          <label for="project_color_<%= color.sub('#', '') %>" style="background:<%= color %>;"></label>
+        <% end %>
+      </div>
+
+      <div class="mt-4">
+        <%= form.submit 'Save', class: 'btn btn-sm btn-secondary mr-1' %>
+        <%= link_to 'Cancel', (form.object.persisted? ? form.object : projects_path), class: 'text-danger' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'clients/new', project: project %>

@@ -1,0 +1,9 @@
+check process <%= fetch(:application) %>_sidekiq_worker
+  with pidfile <%= fetch(:sidekiq_pid_path) %>-0.pid
+  start program = "/etc/init.d/sidekiq_<%= fetch(:application) %>_<%= fetch(:rails_env) %> start"
+  stop program = "/etc/init.d/sidekiq_<%= fetch(:application) %>_<%= fetch(:rails_env) %> stop"
+
+check host <%= fetch(:website_url) %> with address <%= fetch(:website_url) %>
+  if failed
+    icmp type echo count 5 with timeout 15 seconds
+  then alert

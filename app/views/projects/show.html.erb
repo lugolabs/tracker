@@ -1,0 +1,38 @@
+<div class="row mb-1">
+  <div class="col-md-9">
+    <h1 class="h3">
+      <span class="proj-col-label mr-1" style="background:<%= @project.color %>"></span>
+      <% if @client.present? %>
+        <%= link_to @client.name, '#', data: { toggle: 'modal', target: '#client-modal' } %>
+      <% end %>
+      <%= @project.name %>
+    </h1>
+  </div>
+  <div class="col-md-3 text-right">
+    <%= link_to @project, method: :delete, data: { confirm: 'Are you sure you want to delete this project?', toggle: 'tooltip' }, title: 'Delete project', class: 'btn btn-round btn-outline-secondary text-sm' do %>
+      <i class="iconly-0129-trash"></i>
+    <% end %>
+    <%= link_to [:edit, @project], data: { toggle: 'tooltip' }, title: 'Edit project', class: 'btn btn-round btn-outline-secondary text-sm' do %>
+      <i class="iconly-0014-pencil"></i>
+    <% end %>
+    <%= link_to [:new, @project, :task], remote: true, data: { toggle: 'tooltip', replace: '#project-task-' }, title: 'Add new task', class: 'btn btn-round btn-outline-secondary text-sm ml-3' do %>
+      <i class="iconly-0823-plus"></i>
+    <% end %>
+  </div>
+</div>
+
+<div class="text-sm text-muted mb-4 text-boldy">
+  <% if @project.rate.present? %>
+    Rate: <%= humanized_money_with_symbol @project.rate %> per hour
+  <% end %>
+</div>
+
+<div class="item-brd" id="project-task-"></div>
+
+<% @project.tasks.order(:name).each do |task| %>
+  <div class="item-brd" id="project-task-<%= task.id %>">
+    <%= link_to task.name, [:edit, @project, task], remote: true, class: 'text-dark edit-inline no-decor', title: 'Click to edit', data: { replace: "#project-task-#{task.id}" } %>
+  </div>
+<% end %>
+
+<%= render('clients/edit', client: @client) if @client.present? %>

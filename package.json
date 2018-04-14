@@ -1,0 +1,20 @@
+{
+  "name": "tracker",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "^3.3.0",
+    "bootstrap": "4.0.0-beta",
+    "daterangepicker": "^2.1.27",
+    "jquery": "^3.3.1",
+    "jstz": "^2.0.0",
+    "moment": "^2.21.0",
+    "popper.js": "^1.12.9",
+    "rails-ujs": "^5.1.5",
+    "stimulus": "^1.0.1",
+    "turbolinks": "^5.1.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^2"
+  }
+}
