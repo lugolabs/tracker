@@ -1,0 +1,7 @@
+fred:
+  first_name: Fred
+  last_name: Astaire
+  email: fred@example.com
+  role: 'admin'
+  encrypted_password: '$2a$10$/casU5FZHu4vzBaEkdamLeCOaXU4OspNcUB60JsJlOKiGc4q25Lpi'
+  remember_token: 614a54357cec40ecd4754aab076f458d322cad1b

@@ -1,11 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  user: MyString
-  name: MyString
-  notes: MyText
-
-two:
-  user: MyString
-  name: MyString
-  notes: MyText
+bbc:
+  user: fred
+  name: BBC
+  notes: Invoice to be paid within 14 days

@@ -1,13 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+news_home_one:
+  user: fred
+  task: news_home
+  start_at: 1520507424
+  end_at: 1520507427
 
-one:
-  user: MyString
-  task: MyString
-  start_at: 1
-  end_at: 1
-
-two:
-  user: MyString
-  task: MyString
-  start_at: 1
-  end_at: 1
+news_home_two:
+  user: fred
+  task: news_home
+  start_at: 1520507476
+  end_at: 1520507479

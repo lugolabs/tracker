@@ -1,11 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+news_home:
+  name: Home page feature
+  user: fred
+  project: news
 
-one:
-  name: MyString
-  user: MyString
-  project: MyString
-
-two:
-  name: MyString
-  user: MyString
-  project: MyString
+news_page:
+  name: News page feature
+  user: fred
+  project: news

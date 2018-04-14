@@ -1,11 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  user_id: 
-  name: MyString
-  color: MyString
-
-two:
-  user_id: 
-  name: MyString
-  color: MyString
+news:
+  user: fred
+  name: News
+  color: '#1abc9c'
