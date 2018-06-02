@@ -17,7 +17,7 @@ class TasksController < ApplicationController
     @task = @project.tasks.new(task_params)
     @task.user = current_user
     if @task.save
-      redirect_to @project, notice: '<i class="iconly-0651-smile"></i> Got it! Task is now saved.'
+      render_task
     else
       render_form
     end
@@ -25,7 +25,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to @project, notice: '<i class="iconly-0651-smile mr-2"></i> Got it! Task is now saved.'
+      render_task
     else
       render_form
     end
@@ -40,6 +40,10 @@ class TasksController < ApplicationController
 
   def render_form
     render partial: 'form', locals: { project: @project, task: @task }
+  end
+
+  def render_task
+    render partial: 'task', locals: { task: @task }
   end
 
   def set_project

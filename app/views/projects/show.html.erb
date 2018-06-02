@@ -29,10 +29,7 @@
 
 <div class="item-brd" id="project-task-"></div>
 
-<% @project.tasks.order(:name).each do |task| %>
-  <div class="item-brd" id="project-task-<%= task.id %>">
-    <%= link_to task.name, [:edit, @project, task], remote: true, class: 'text-dark edit-inline no-decor', title: 'Click to edit', data: { replace: "#project-task-#{task.id}" } %>
-  </div>
-<% end %>
-
+<div id="project-tasks">
+  <%= render @project.tasks.order(:name) %>
+</div>
 <%= render('clients/edit', client: @client) if @client.present? %>
