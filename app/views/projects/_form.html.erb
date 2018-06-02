@@ -2,15 +2,6 @@
   <div class="col-md-8">
     <%= bootstrap_form_for project do |form| %>
       <%= form.text_field :name %>
-      <div class="row">
-        <div class="col-md-9">
-          <%= form.select :client_id, project.user.clients.collect { |c| [c.name, c.id] }, { include_blank: true } %>
-        </div>
-        <div class="col-md-3">
-          <div class="mb-2"></div>
-          <%= link_to 'Add client', '#', data: { toggle: 'modal', target: '#client-modal' }, class: 'btn btn-sm btn-outline-secondary mt-4' %>
-        </div>
-      </div>
 
       <div class="row">
         <div class="col-md-5">
@@ -35,5 +26,3 @@
     <% end %>
   </div>
 </div>
-
-<%= render 'clients/new', project: project %>

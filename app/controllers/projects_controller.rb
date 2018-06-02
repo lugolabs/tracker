@@ -9,8 +9,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @client = @project.client
-    @client.original_project = @project.id if @client
   end
 
   def new
@@ -53,7 +51,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :client_id, :color, :rate_cents, :rate_currency)
+    params.require(:project).permit(:name, :color, :rate_cents, :rate_currency)
   end
 
   def set_tab
