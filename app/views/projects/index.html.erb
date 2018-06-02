@@ -14,6 +14,9 @@
     <div class="item-brd">
       <span class="proj-col-label-sm mr-1" style="background:<%= project.color %>"></span>
       <%= link_to project.name, project, class: 'text-dark' %>
+      <% if project.disabled %>
+        <span class="badge badge-light">Disabled</span>
+      <% end %>
     </div>
   <% end %>
 <% else %>
