@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_28_070920) do
+ActiveRecord::Schema.define(version: 2018_06_02_093445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2018_01_28_070920) do
     t.datetime "updated_at", null: false
     t.integer "rate_cents"
     t.string "rate_currency"
-    t.uuid "client_id"
+    t.datetime "disabled_at"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 

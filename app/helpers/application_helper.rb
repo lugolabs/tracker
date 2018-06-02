@@ -13,6 +13,7 @@ module ApplicationHelper
     current_user.tasks
                 .includes(:project)
                 .joins(:project)
+                .merge(Project.enabled)
                 .order('projects.name')
                 .group_by(&:project)
   end

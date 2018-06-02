@@ -51,7 +51,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :color, :rate_cents, :rate_currency)
+    params.require(:project).permit(:name, :color, :rate_cents, :rate_currency, :disabled)
   end
 
   def set_tab

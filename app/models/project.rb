@@ -12,4 +12,14 @@ class Project < ApplicationRecord
   validates :name, presence: true
 
   monetize :rate_cents, as: :rate, allow_nil: true
+
+  scope :enabled, -> { where(disabled_at: nil) }
+
+  def disabled
+    disabled_at?
+  end
+
+  def disabled=(value)
+    self.disabled_at = (value == '1' ? Time.current : nil)
+  end
 end

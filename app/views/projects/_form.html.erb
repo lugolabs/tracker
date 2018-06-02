@@ -19,6 +19,8 @@
         <% end %>
       </div>
 
+      <%= form.check_box :disabled %>
+
       <div class="mt-4">
         <%= form.submit 'Save', class: 'btn btn-sm btn-secondary mr-1' %>
         <%= link_to 'Cancel', (form.object.persisted? ? form.object : projects_path), class: 'text-danger' %>

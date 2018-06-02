@@ -2,9 +2,6 @@
   <div class="col-md-9">
     <h1 class="h3">
       <span class="proj-col-label mr-1" style="background:<%= @project.color %>"></span>
-      <% if @client.present? %>
-        <%= link_to @client.name, '#', data: { toggle: 'modal', target: '#client-modal' } %>
-      <% end %>
       <%= @project.name %>
     </h1>
   </div>
@@ -21,7 +18,10 @@
   </div>
 </div>
 
-<div class="text-sm text-muted mb-4 text-boldy">
+<div class="text-muted mb-4">
+  <% if @project.disabled %>
+    <span class="badge badge-warning mr-1">Disabled</span>
+  <% end %>
   <% if @project.rate.present? %>
     Rate: <%= humanized_money_with_symbol @project.rate %> per hour
   <% end %>
