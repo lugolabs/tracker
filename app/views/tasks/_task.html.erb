@@ -1,10 +1,12 @@
-<div class="item-brd row" id="project-task-<%= task.id %>">
-  <div class="col-md-11">
-    <%= link_to task.name, [:edit, task.project, task], remote: true, class: 'text-dark edit-inline no-decor', title: 'Click to edit', data: { replace: "#project-task-#{task.id}" } %>
-  </div>
-  <div class="col-md-1 text-right">
-    <%= link_to [task.project, task], method: :delete, data: { confirm: 'Are you sure you want to delete this task?' }, title: 'Delete task', class: 'text-muted' do %>
-      <i class="iconly-0129-trash"></i>
-    <% end %>
+<div class="item-brd" id="project-task-<%= task.id %>">
+  <div class="row">
+    <div class="col-md-11">
+      <%= link_to task.name, [:edit, task.project, task], remote: true, class: 'text-dark edit-inline no-decor', title: 'Click to edit', data: { replace: "#project-task-#{task.id}" } %>
+    </div>
+    <div class="col-md-1 text-right">
+      <%= link_to [task.project, task], method: :delete, data: { confirm: 'Are you sure you want to delete this task?' }, title: 'Delete task', class: 'text-muted' do %>
+        <i class="iconly-0129-trash"></i>
+      <% end %>
+    </div>
   </div>
 </div>
