@@ -21,6 +21,8 @@ class Slot < ApplicationRecord
   scope :between, ->(start_time, end_time) { where('start_at BETWEEN ? AND ?', start_time, end_time) }
   scope :by_project, ->(project_id) { joins(:task).where(tasks: { project_id: project_id }) }
 
+  delegate :project, to: :task
+
   def start_at_time
     @start_at_time || start_at_dt.in_time_zone(time_zone)
   end
@@ -39,10 +41,8 @@ class Slot < ApplicationRecord
   end
 
   def duration
-    (end_at || Time.zone.now) - start_at
+    (end_at || Time.current).to_i - start_at
   end
-
-  delegate :project, to: :task
 
   def time_zone
     user.try(:time_zone)
