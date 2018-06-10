@@ -9,8 +9,8 @@ class SlotsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select '.text-boldy', slot.task.name
-    assert_select '.text-muted', '11:00 -
-        12:00'
+    assert_select '.text-muted', '10:00 -
+        11:00'
     assert_select %(a[data-target="task"][data-action="timer#playTask"]), 'Start'
     assert_select %(a[data-replace="#timer-slot-#{slot.id}"][data-remote="true"]), 'Edit'
     assert_select %(a[href="#{slot_path(slot)}"][data-remote="true"]), 'Delete'
