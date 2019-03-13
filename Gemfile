@@ -39,6 +39,8 @@ gem 'figaro'
 group :test do
   # Adds support for Capybara system testing
   gem 'capybara', '~> 2.13'
+  gem 'chrome'
+  gem 'chromedriver-helper'
   gem 'selenium-webdriver'
 
   # Mocking and stubbing

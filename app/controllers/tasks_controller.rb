@@ -2,7 +2,7 @@
 
 class TasksController < ApplicationController
   before_action :set_project
-  before_action :set_task, only: %i[edit update destroy]
+  before_action :set_task, only: %i[edit update toggle destroy]
 
   def new
     @task = Task.new
@@ -29,6 +29,10 @@ class TasksController < ApplicationController
     else
       render_form
     end
+  end
+
+  def toggle
+    @task.toggle_completion
   end
 
   def destroy

@@ -25,6 +25,7 @@
 .iconly-0651-smile:before,
 .iconly-0741-history2:before,
 .iconly-0750-alarm-check:before,
+.iconly-0821-check:before,
 .iconly-0823-plus:before,
 .iconly-0827-chevron-down:before,
 .iconly-0828-chevron-left:before,
@@ -45,25 +46,26 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.iconly-0014-pencil:before { content: "\f100"; }
-.iconly-0119-hammer-wrench:before { content: "\f101"; }
-.iconly-0129-trash:before { content: "\f10e"; }
-.iconly-0277-book2:before { content: "\f103"; }
+.iconly-0014-pencil:before { content: "\f140"; }
+.iconly-0119-hammer-wrench:before { content: "\f141"; }
+.iconly-0129-trash:before { content: "\f142"; }
+.iconly-0277-book2:before { content: "\f143"; }
 .iconly-0287-user:before { content: "\f104"; }
-.iconly-0303-hand-waving:before { content: "\f105"; }
-.iconly-0394-calendar-full:before { content: "\f110"; }
-.iconly-0506-pie-chart2:before { content: "\f106"; }
-.iconly-0651-smile:before { content: "\f107"; }
-.iconly-0741-history2:before { content: "\f108"; }
-.iconly-0750-alarm-check:before { content: "\f109"; }
-.iconly-0823-plus:before { content: "\f10a"; }
-.iconly-0827-chevron-down:before { content: "\f111"; }
-.iconly-0828-chevron-left:before { content: "\f112"; }
-.iconly-0829-chevron-right:before { content: "\f113"; }
-.iconly-0866-arrow-right-circle:before { content: "\f10b"; }
-.iconly-0874-stop-circle:before { content: "\f10c"; }
-.iconly-0875-play-circle:before { content: "\f10d"; }
-.iconly-1002-ellipsis:before { content: "\f10f"; }
+.iconly-0303-hand-waving:before { content: "\f144"; }
+.iconly-0394-calendar-full:before { content: "\f145"; }
+.iconly-0506-pie-chart2:before { content: "\f146"; }
+.iconly-0651-smile:before { content: "\f147"; }
+.iconly-0741-history2:before { content: "\f148"; }
+.iconly-0750-alarm-check:before { content: "\f149"; }
+.iconly-0821-check:before { content: "\f13b"; }
+.iconly-0823-plus:before { content: "\f14a"; }
+.iconly-0827-chevron-down:before { content: "\f14b"; }
+.iconly-0828-chevron-left:before { content: "\f14c"; }
+.iconly-0829-chevron-right:before { content: "\f14d"; }
+.iconly-0866-arrow-right-circle:before { content: "\f14e"; }
+.iconly-0874-stop-circle:before { content: "\f14f"; }
+.iconly-0875-play-circle:before { content: "\f150"; }
+.iconly-1002-ellipsis:before { content: "\f151"; }
 
-.glyphicon-chevron-left:before { content: "\f112"; }
-.glyphicon-chevron-right:before { content: "\f113"; }
+.glyphicon-chevron-left:before { content: "\f14c"; }
+.glyphicon-chevron-right:before { content: "\f14d"; }

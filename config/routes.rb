@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   resources :reports, only: :index
   resources :clients, only: %i[create update destroy]
   resources :projects do
-    resources :tasks, only: %i[new edit create update destroy]
+    resources :tasks, only: %i[new edit create update destroy] do
+      post :toggle, on: :member
+    end
   end
   resources :slots, only: %i[edit show create update destroy] do
     post :stop, on: :member

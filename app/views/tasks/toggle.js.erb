@@ -1,0 +1,8 @@
+var link = $('#project-task-<%= @task.id %> a[data-action="toggle"]');
+<% if @task.completed_at? %>
+  link.addClass('text-success');
+  link.removeClass('text-muted');
+<% else %>
+  link.removeClass('text-success');
+  link.addClass('text-muted');
+<% end %>

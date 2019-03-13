@@ -4,6 +4,12 @@
       <%= link_to task.name, [:edit, task.project, task], remote: true, class: 'text-dark edit-inline no-decor', title: 'Click to edit', data: { replace: "#project-task-#{task.id}" } %>
     </div>
     <div class="col-md-1 text-right">
+      <%= link_to [:toggle, task.project, task], method: :post, remote: true,
+        title: 'Complete task',
+        class: "no-decor mr-2 #{task.completed_at? ? 'text-success' : 'text-muted'}",
+          data: { action: 'toggle' } do %>
+        <i class="iconly-0821-check"></i>
+      <% end %>
       <%= link_to [task.project, task], method: :delete, data: { confirm: 'Are you sure you want to delete this task?' }, title: 'Delete task', class: 'text-muted' do %>
         <i class="iconly-0129-trash"></i>
       <% end %>

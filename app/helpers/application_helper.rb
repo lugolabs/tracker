@@ -11,6 +11,7 @@ module ApplicationHelper
 
   def current_user_tasks
     current_user.tasks
+                .in_progress
                 .includes(:project)
                 .joins(:project)
                 .merge(Project.enabled)
